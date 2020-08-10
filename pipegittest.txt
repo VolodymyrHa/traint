@@ -6,7 +6,7 @@ pipeline {
                 docker { image 'nginx' } 
             }
             steps {
-                
+                echo "End of Stage Build"
             }
         }    
         stage('Tomcat') {
