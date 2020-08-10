@@ -1,12 +1,20 @@
 pipeline {
-    agent { docker { image 'nginx' } }
-
+    agent none
     stages {
-        stage('1-Build') {
+        stage('Nginx') {
+        agent {
+            docker { image 'nginx' } 
+        }
             steps {
-                echo "Start of Stage Build"
-                echo "Building......."
-                echo "End of Stage Build"
+                sh 'nginx --version'
+            }
+            
+        stage('Tomcat') {
+        agent {
+            docker { image 'tomcat' } 
+        }
+            steps {
+                sh 'tomcat --version'
             }
         }
    }
