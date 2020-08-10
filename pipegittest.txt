@@ -14,7 +14,7 @@ pipeline {
                 docker { image 'tomcat' } 
             }
             steps {
-                sh 'tomcat --version'
+                echo "End of Stage Build"
             }
         }
    }
