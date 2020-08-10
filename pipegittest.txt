@@ -2,17 +2,17 @@ pipeline {
     agent none
     stages {
         stage('Nginx') {
-        agent {
-            docker { image 'nginx' } 
-        }
+            agent {
+                docker { image 'nginx' } 
+            }
             steps {
                 sh 'nginx --version'
             }
-            
+        }    
         stage('Tomcat') {
-        agent {
-            docker { image 'tomcat' } 
-        }
+            agent {
+                docker { image 'tomcat' } 
+            }
             steps {
                 sh 'tomcat --version'
             }
