@@ -6,7 +6,7 @@ pipeline {
         docker { image 'nginx' }
       }
       steps {
-        sh 'whoami'
+        sh 'ls'
       }
     }
     stage('Tomcat') {
