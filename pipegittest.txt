@@ -14,7 +14,7 @@ pipeline {
         docker { image 'tomcat' }
       }
       steps {
-        sh 'docker ps'
+        sh 'ls'
       }
     }
     
