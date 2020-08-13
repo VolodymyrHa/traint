@@ -1,21 +1,12 @@
 pipeline {
-    agent none
+    agent {
+        docker { image 'node:14-alpine' }
+    }
     stages {
-        stage('Nginx') {
-            agent {
-                docker { image 'nginx' } 
-            }
+        stage('Test') {
             steps {
-                echo "End of Stage Build"
-            }
-        }    
-        stage('Tomcat') {
-            agent {
-                docker { image 'tomcat' } 
-            }
-            steps {
-                echo "End of Stage Build"
+                sh 'node --version'
             }
         }
-   }
+    }
 }
