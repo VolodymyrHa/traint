@@ -4,8 +4,7 @@ pipeline {
     }
     stages {
         stage('Test') {
-            steps {
-                sh 'COPY nginx.conf /etc/nginx/nginx.conf'
+            steps {                
                 sh 'docker run nginx'
             }
         }
