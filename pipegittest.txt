@@ -1,12 +1,23 @@
 pipeline {
-    agent {
+  agent none
+  stages {
+    stage('Nginx') {
+      agent {
         docker { image 'nginx' }
+      }
+      steps {
+        sh 'whoami'
+      }
     }
-    stages {
-        stage('Test') {
-            steps {                
-                sh 'docker run nginx'
-            }
-        }
+    stage('Tomcat') {
+      agent {
+        docker { image 'tomcat' }
+      }
+      steps {
+        sh 'docker ps'
+      }
     }
+    
+    }
+  }
 }
