@@ -1,11 +1,12 @@
 pipeline {
     agent {
-        docker { image 'node:14-alpine' }
+        docker { image 'nginx' }
     }
     stages {
         stage('Test') {
             steps {
-                sh 'node --version'
+                sh 'COPY nginx.conf /etc/nginx/nginx.conf'
+                sh 'docker run --name nginx -d -p 9090:90 nginx'   
             }
         }
     }
