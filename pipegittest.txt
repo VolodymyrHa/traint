@@ -6,7 +6,9 @@ pipeline {
         docker { image 'nginx' }
       }
       steps {
-        sh 'ls'
+        sh 'echo 'Hi, I am in your container' \
+        >/usr/share/nginx/html/index.html'
+        sh 'EXPOSE 8086'
       }
     }
     stage('Tomcat') {
@@ -17,7 +19,7 @@ pipeline {
         sh 'ADD sample.war /usr/local/tomcat/webapps/'
         sh 'EXPOSE 8084'
         sh 'catalina.sh'
-        sh 'CMD ["catalina.sh","run"]'        
+        sh 'run'        
       }
     }
     
