@@ -14,9 +14,10 @@ pipeline {
         docker { image 'tomcat:8.0-alpine' }
       }
       steps {
-        sh 'ADD sample.war /usr/local/tomcat/webapps/'
+        sh 'cp sample.war /usr/local/tomcat/webapps/'
         sh 'EXPOSE 8084'
-        sh 'CMD ["catalina.sh", "run"]'        
+        sh 'catalina.sh'
+        sh 'run'        
       }
     }
     
