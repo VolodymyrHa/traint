@@ -11,13 +11,13 @@ pipeline {
     }
     stage('Tomcat') {
       agent {
-        docker { image 'tomcat:8.0-alpine' }
+        docker { image 'tomcat:9.0' }
       }
       steps {
-        sh 'cp sample.war /usr/local/tomcat/webapps/'
+        sh 'ADD sample.war /usr/local/tomcat/webapps/'
         sh 'EXPOSE 8084'
         sh 'catalina.sh'
-        sh 'run'        
+        sh 'CMD ["catalina.sh","run"]'        
       }
     }
     
