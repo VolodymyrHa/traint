@@ -6,9 +6,7 @@ pipeline {
         docker { image 'nginx' }
       }
       steps {
-        sh 'echo "Hi, I am in your container" \
-        >/usr/share/nginx/html/index.html'
-        sh 'EXPOSE 8086'
+        sh 'ls'
       }
     }
     stage('Tomcat') {
