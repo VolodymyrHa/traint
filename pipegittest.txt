@@ -11,7 +11,7 @@ pipeline {
     }
     stage('Tomcat') {
       agent {
-        docker { image 'tomcat' }
+        docker { image 'tomcat:8.0-alpine' }
       }
       steps {
         sh 'ADD sample.war /usr/local/tomcat/webapps/'
