@@ -4,9 +4,10 @@ pipeline {
     stage('Nginx') {
       agent {
         docker { image 'nginx' }
+        args 'run -it --rm -d -p 8989:85 --name web nginx'
       }
       steps {
-        args '-it --rm -d -p 8989:85 --name web nginx'
+        args 'run -it --rm -d -p 8989:85 --name web nginx'
         sh 'ls'
       }
     }
