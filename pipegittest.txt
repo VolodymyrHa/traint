@@ -15,7 +15,7 @@ pipeline {
       }
       steps {
         
-        def dockerrun = 'docker run -it --rm -p 8888:8181 tomcat:9.0'
+        def dockerRun = 'docker run -it --rm -p 8888:8181 tomcat:9.0'
         
       }
     }
