@@ -12,7 +12,7 @@ pipeline {
     stage('Tomcat') {
       agent {     
         image 'tomcat:9.0'
-        args '-it --rm -p 8888:8181 tomcat:9.0'
+        args '-it --rm -p 8888:8181'
       }
       
       steps {
