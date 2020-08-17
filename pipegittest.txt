@@ -6,7 +6,7 @@ pipeline {
         docker { image 'nginx' }
       }
       steps {
-        args '-it --rm -d -p 8080:80 --name web nginx'
+        args '-it --rm -d -p 8989:85 --name web nginx'
         sh 'ls'
       }
     }
