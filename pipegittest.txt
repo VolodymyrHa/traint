@@ -11,7 +11,7 @@ pipeline {
     }
     stage('Tomcat') {
       agent {     
-        image 'tomcat:9.0'
+        image ('tomcat:9.0')
         
       }
       
