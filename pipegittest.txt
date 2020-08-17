@@ -6,6 +6,7 @@ pipeline {
         docker { image 'nginx' }
       }
       steps {
+        args '-it --rm -d -p 8080:80 --name web nginx'
         sh 'ls'
       }
     }
@@ -16,7 +17,7 @@ pipeline {
       }
       
       steps {
-        args '-it --rm -p 8888:8181 tomcat:9.0'
+
         sh 'ls'
         
       }
