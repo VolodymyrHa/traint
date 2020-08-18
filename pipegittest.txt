@@ -27,7 +27,7 @@ pipeline {
         sh 'pwd'
         sh 'cd /usr/local/tomcat/webapps/'
         sh 'pwd'
-        sh 'curl -O https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war'
+        sh 'curl -O /usr/local/tomcat/webapps/ https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war'
         sh 'ls'
        
 
