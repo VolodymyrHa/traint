@@ -3,8 +3,9 @@ pipeline {
   stages {
     stage('Nginx') {
       agent {
-        dockerfile true
-       
+      
+        docker { image 'nginx'}
+              
        
       }
       steps {
@@ -20,6 +21,7 @@ pipeline {
       
       steps {
 
+        sh 'curl -O https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war'
         sh 'ls'
         
       }
