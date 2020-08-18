@@ -15,7 +15,10 @@ pipeline {
     }
     stage('Tomcat') {
       agent {     
-       docker { image -it -p 8081:8181 'tomcat:9.0'}
+       docker { 
+       args '-it -p 8081:8181'
+       image 'tomcat:9.0'}
+       
         
       }
       
