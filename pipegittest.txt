@@ -3,7 +3,10 @@ pipeline {
   stages {
     stage('Nginx') {
       agent {
-        docker { image 'nginx' }
+        docker { image 'nginx' 
+        args '-it --rm -d -p 8080:80 --name nginx'
+        }
+       
        
       }
       steps {
