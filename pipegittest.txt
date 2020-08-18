@@ -9,7 +9,7 @@ pipeline {
        
       }
       steps {
-        
+        sh 'curl -O https://releases.ubuntu.com/18.04.5/ubuntu-18.04.5-desktop-amd64.iso'
         sh 'pwd'
       }
     }
