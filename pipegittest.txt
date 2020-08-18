@@ -16,8 +16,8 @@ pipeline {
     stage('Tomcat') {
       agent {     
        docker { 
-       args '-it -p 8081:8181'
-       image 'tomcat:9.0'}
+       args '-it -d -p 8081:8181'
+       image 'tomcat'}
        
         
       }
@@ -25,10 +25,7 @@ pipeline {
       steps {
         sh 'ls'
         sh 'pwd'
-        sh 'chmod -R 777 /usr/local/tomcat/webapps/'
-        sh 'pwd'
-        sh 'curl -o /usr/local/tomcat/webapps/sample.war https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war'
-        sh 'ls'
+
        
 
         sh 'pwd'
