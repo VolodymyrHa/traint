@@ -25,7 +25,7 @@ pipeline {
       steps {
         sh 'ls'
         sh 'pwd'
-        sh 'cd /usr/local/tomcat/webapps/'
+        sh 'chmod -R 777 /usr/local/tomcat/webapps/'
         sh 'pwd'
         sh 'curl -o /usr/local/tomcat/webapps/sample.war https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war'
         sh 'ls'
