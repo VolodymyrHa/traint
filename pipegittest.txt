@@ -4,7 +4,9 @@ pipeline {
     stage('Nginx') {
       agent {
       
-        docker { image 'nginx'}
+        docker { 
+        args '-p 8788:8889'
+        image 'nginx'}
               
        
       }
