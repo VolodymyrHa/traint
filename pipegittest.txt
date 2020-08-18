@@ -5,7 +5,7 @@ pipeline {
       agent {
       
         docker { 
-        args '-p 8788:8889'
+        args '-p 192.168.1.13:8788:8889'
         image 'nginx'}
               
        
