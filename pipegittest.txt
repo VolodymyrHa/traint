@@ -15,7 +15,7 @@ pipeline {
     }
     stage('Tomcat') {
       agent {     
-       docker { image 'tomcat:9.0'}
+       docker { image -it --publish 8081:8080 'tomcat:9.0'}
         
       }
       
@@ -23,6 +23,9 @@ pipeline {
 
         sh 'curl -O https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war'
         sh 'ls'
+        sh 'pwd'
+        sh 'cp sample.war /usr/local/tomcat/webapps/'
+        sh 'cp sample.war /usr/local/tomcat/webapps/'
         
       }
     }
