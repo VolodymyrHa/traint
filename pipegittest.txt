@@ -7,7 +7,7 @@ pipeline {
        
       }
       steps {
-        args 'run -it --rm -d -p 8989:85 --name web nginx'
+        
         sh 'ls'
       }
     }
