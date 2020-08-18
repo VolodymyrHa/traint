@@ -3,15 +3,13 @@ pipeline {
   stages {
     stage('Nginx') {
       agent {
-        docker { image 'nginx' 
-                 args '-d -p 8888:89 --name nginx'
-        }
+        dockerfile true
        
        
       }
       steps {
         
-        sh 'docker run nginx'
+        sh 'echo its me'
       }
     }
     stage('Tomcat') {
