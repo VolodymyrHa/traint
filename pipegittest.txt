@@ -10,7 +10,7 @@ pipeline {
       }
       steps {
         
-        sh 'echo its me'
+        sh 'pwd'
       }
     }
     stage('Tomcat') {
@@ -27,8 +27,8 @@ pipeline {
         sh 'curl -O https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war'
         sh 'ls'
         sh 'pwd'
-        sh 'cp sample.war /usr/local/tomcat/webapps/'
-        sh 'cp sample.war /usr/local/tomcat/webapps/'
+        sh 'sudo cp sample.war /usr/local/tomcat/webapps/'
+        sh 'pwd'
         
       }
     }
