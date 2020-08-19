@@ -19,8 +19,8 @@ pipeline {
       agent {     
        docker { 
        
-       image ' run p 8788:8889 d tomcat:latest ' 
-       
+       image 'tomcat:latest ' 
+       args 'docker container run -p 8282:8383 -d tomcat'
         }
       }
       
