@@ -1,6 +1,6 @@
 FROM tomcat
 
-COPY /home/sample.war /usr/local/tomcat/webapps/sample.war
+ADD sample.war /usr/local/tomcat/webapps/
 
 EXPOSE 8182
 
