@@ -1,5 +1,6 @@
 pipeline {
-    agent { dockerfile true }
+    agent { dockerfile true
+            docker run -p 80:8080 tomcat }
     stages {
         stage('Test') {
             steps {
