@@ -20,7 +20,7 @@ pipeline {
        docker { 
        
        image 'tomcat'
-       args 'container:tomcat run -p 8788:8889 -d'
+       args 'tomcat run -p 8788:8889 -d'
         }
       }
       
