@@ -20,7 +20,7 @@ pipeline {
        docker { 
        
        image 'tomcat:latest ' 
-       args 'docker container run -p 8282:8383 -d tomcat:latest'
+
        args 'docker container ls -a'
        args 'docker cp /home/volo/sample.war tomcat:/usr/local/tomcat/webapps/'
         }
