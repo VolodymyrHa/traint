@@ -1,45 +1,10 @@
 pipeline {
-  agent none
-  stages {
-    stage('Nginx') {
-      agent {
-      
-        docker { 
-        
-        image 'nginx'}
-              
-       
-      }
-      steps {
-        
-        sh 'pwd'
-      }
-    }
-    stage('Tomcat') {
-      
-      
-           agent {     
-       docker { 
-       
-
-       image 'docker run -v /home/volo/sample.war:/usr/local/tomcat/webapps/sample.war -it -p 8181:8080 tomcat' 
-
-       args 'docker run -v /home/volo/sample.war:/usr/local/tomcat/webapps/sample.war -it -p 8181:8080 tomcat'
-
-
-
+    agent { dockerfile true }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'ls'
+            }
         }
-      }
-      
-      steps {
-        sh 'ls'
-            
-
-        sh 'pwd'
-        
-      }
+    }
 }
-      
-    }
-    
-    }
