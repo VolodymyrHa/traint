@@ -5,20 +5,20 @@ pipeline {
       agent {
       
         docker { 
-        args '-p 192.168.1.13:8788:8889'
+        
         image 'nginx'}
               
        
       }
       steps {
-        sh 'curl -O https://releases.ubuntu.com/18.04.5/ubuntu-18.04.5-desktop-amd64.iso'
+        
         sh 'pwd'
       }
     }
     stage('Tomcat') {
       agent {     
        docker { 
-     
+       args 'container run -p 8788:8889 -d '
        image 'tomcat'}
        
         
@@ -31,7 +31,7 @@ pipeline {
        
 
         sh 'pwd'
-        
+        sh 'curl -O https://releases.ubuntu.com/18.04.5/ubuntu-18.04.5-desktop-amd64.iso'
       }
     }
     
