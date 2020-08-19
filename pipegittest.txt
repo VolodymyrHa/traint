@@ -22,7 +22,7 @@ pipeline {
        image 'tomcat:latest ' 
 
        args 'docker container ls -a'
-       args 'docker cp /home/volo/sample.war tomcat:/usr/local/tomcat/webapps/'
+       args 'docker cp /home/volo/sample.war 946cf24069a1:/usr/local/tomcat/webapps/'
         }
       }
       
