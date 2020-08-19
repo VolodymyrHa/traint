@@ -20,7 +20,7 @@ pipeline {
        docker { 
        
        image 'tomcat:latest ' 
-       args 'docker container run -p 8282:8383 -d tomcat:latest'
+       args 'docker container run -p 8282:8383 -d tomcat:latest --entrypoint=\'\' '
         }
       }
       
