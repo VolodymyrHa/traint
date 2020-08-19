@@ -16,28 +16,17 @@ pipeline {
       }
     }
     stage('Tomcat') {
-      agent {     
-       docker { 
-       
-       image 'tomcat' 
-
-       args 'docker container ls -a'
-       args 'docker cp /home/volo/sample.war /usr/local/tomcat/webapps/'
-       args 'EXPOSE 8181'
-       args 'catalina.sh'
-       args 'run'
-
-
-        }
-      }
       
-      steps {
-        sh 'ls'
-            
+      
+      agent {
+    // Equivalent to "docker build -f Dockerfile.build --build-arg version=1.0.2 ./build/
+    dockerfile {
+        filename 'Dockerfile'
+        dir 'traint'
 
-        sh 'pwd'
-        
-      }
+    }
+}
+      
     }
     
     }
