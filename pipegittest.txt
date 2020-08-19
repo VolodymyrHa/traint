@@ -19,9 +19,9 @@ pipeline {
       agent {     
        docker { 
        
-       image 'tomcat'}
+       image 'tomcat'
        args 'container run -p 8788:8889 -d'
-        
+        }
       }
       
       steps {
