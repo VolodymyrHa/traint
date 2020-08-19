@@ -19,7 +19,7 @@ pipeline {
       agent {     
        docker { 
        
-       image 'tomcat:latest -p 8788:8889 -d ' 
+       image '  -p 8788:8889 -d tomcat:latest ' 
        
         }
       }
