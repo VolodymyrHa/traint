@@ -18,13 +18,25 @@ pipeline {
     stage('Tomcat') {
       
       
-      agent {
-    // Equivalent to "docker build -f Dockerfile.build --build-arg version=1.0.2 ./build/
-    dockerfile {
-        filename 'Dockerfile'
-        dir 'traint'
+           agent {     
+       docker { 
+       
+       image 'tomcat' 
 
-    }
+       args 'docker run -v /home/volo/sample.war:/usr/local/tomcat/webapps/sample.war -it -p 8181:8080 tomcat'
+
+
+
+        }
+      }
+      
+      steps {
+        sh 'ls'
+            
+
+        sh 'pwd'
+        
+      }
 }
       
     }
