@@ -1,8 +1,10 @@
+
+
 node {
     checkout scm
-    docker.image('tomcat').withRun('-v /home/sample.war:/usr/local/tomcat/webapps/sample.war -it -p 8585:8080') {
-    
-        sh 'pwd'
-        sh 'curl -O https://releases.ubuntu.com/18.04.5/ubuntu-18.04.5-desktop-amd64.iso'
+    def testImage = docker.build("test-image", "./") 
+
+    testImage.inside {
+        sh 'make test'
     }
 }
