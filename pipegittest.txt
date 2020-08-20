@@ -1,6 +1,6 @@
 node {
     checkout scm
-    docker.build("volo").withRun{'-p 8182:80 volo'}.inside {
-        sh 'curl -O https://releases.ubuntu.com/18.04.5/ubuntu-18.04.5-desktop-amd64.iso'
-    }
+    docker.build("volo")
+    docker.withRun('-p 8182:80 volo')
+    
 }
