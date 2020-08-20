@@ -1,6 +1,6 @@
 node {
     checkout scm
     def testImage = docker.build("test") 
-    def testImage2 = docker.image('test:latest').withRun('-v /home/sample.war:/usr/local/tomcat/webapps/sample.war -it -p 8585:8080')
+    docker.image('test:latest').withRun('-v /home/sample.war:/usr/local/tomcat/webapps/sample.war -it -p 8585:8080')
     
 }
