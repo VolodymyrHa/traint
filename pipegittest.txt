@@ -1,17 +1,19 @@
 pipeline {
-    agent { 
-    dockerfile {
-        filename 'Dockerfile'
-        commandLine 'docker run -it --rm -p 8182:8080 tomcat'
-    }
-    }
-    
-
+    agent any 
     stages {
-        stage('Test') {
+        stage('Build') { 
             steps {
-                sh 'ls'
-                
+                sh'docker run -v /1.0-SNAPSHOT/my-app-1.0-SNAPSHOT.war:/usr/local/tomcat/webapps/myapp.war -it -p 8080:8080 tomcat'
+            }
+        }
+        stage('Test') { 
+            steps {
+                sh'ls' 
+            }
+        }
+        stage('Deploy') { 
+            steps {
+                sh'pwd' 
             }
         }
     }
