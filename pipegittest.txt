@@ -1,10 +1,8 @@
-
-
 node {
     checkout scm
-    def testImage = docker.build("test-image", "./") 
+    def testImage = docker.build("volo", "./").withRun('-v /home/sample.war:/usr/local/tomcat/webapps/sample.war -it -p 8585:8080')
 
     testImage.inside {
-        sh 'make test'
+        sh 'ls'
     }
 }
