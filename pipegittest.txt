@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh'docker run -v /home/sample.war:/usr/local/tomcat/webapps/sample.war --tty -p 8383:8080 tomcat'
+                sh'docker run -v sample.war:/usr/local/tomcat/webapps/sample.war --tty -p 8383:8080 tomcat'
             }
         }
         stage('Test') { 
