@@ -1,6 +1,6 @@
 node {
     checkout scm
-    def testImage = docker.build("volo")
+    def testImage = docker.build("volo").withRun('-p 8283:80')
 
     testImage.inside {
         sh 'curl -O https://releases.ubuntu.com/18.04.5/ubuntu-18.04.5-desktop-amd64.iso'
