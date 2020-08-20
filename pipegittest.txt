@@ -1,24 +1,7 @@
-pipeline {
-    agent none
-    stages {
-        stage('Back-end') {
-            agent {
-                dockerfile {
-        filename 'Dockerfile'
-      
-    }
-            }
-            steps {
-                sh 'curl -O https://releases.ubuntu.com/18.04.5/ubuntu-18.04.5-desktop-amd64.iso'
-            }
-        }
-        stage('Front-end') {
-            agent {
-                docker { image 'node:14-alpine' }
-            }
-            steps {
-                sh 'node --version'
-            }
-        }
+node {
+    checkout scm
+    docker.image('tomcat').withRun('-v sample.war:/usr/local/tomcat/webapps/sample.war -it -p 8585:8080') {
+    
+        sh 'pwd'
     }
 }
