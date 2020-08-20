@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh'docker run -v /1.0-SNAPSHOT/my-app-1.0-SNAPSHOT.war:/usr/local/tomcat/webapps/myapp.war -it -p 8080:8080 tomcat'
+                sh'docker run -v sample.war:/usr/local/tomcat/webapps/sample.war -it -p 8181:8080 tomcat'
             }
         }
         stage('Test') { 
