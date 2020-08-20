@@ -1,20 +1,17 @@
 pipeline {
-    agent any 
+    agent { 
+    dockerfile {
+        filename 'Dockerfile'
+      
+    }
+    }
+    
+
     stages {
-        stage('Build') { 
+        stage('Test') {
             steps {
-                sh'docker run tomcat'
-                sh'docker run -v sample.war:/usr/local/tomcat/webapps/sample.war --tty -p 8383:8080 tomcat'
-            }
-        }
-        stage('Test') { 
-            steps {
-                sh'ls' 
-            }
-        }
-        stage('Deploy') { 
-            steps {
-                sh'pwd' 
+                sh 'ls'
+                
             }
         }
     }
